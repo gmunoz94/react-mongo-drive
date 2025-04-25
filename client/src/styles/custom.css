@@ -1,0 +1,40 @@
+.table-header {
+  font-size: .85rem;
+}
+
+.table-data {
+  font-size: .7rem;
+}
+
+.card-body {
+  padding: .25rem 0;
+}
+
+.table-container {
+  padding-inline: 0;
+}
+
+.card {
+  height: 550px;
+}
+
+.order-button {
+  margin-bottom: auto;
+}
+
+
+.table {
+  overflow-y: scroll;
+
+}
+
+/* .schedule-container {
+  flex-grow: 1;
+  max-height: 375px;
+  overflow-y: auto;
+} */
+
+.schedule-table-header {
+  position: sticky;
+  top: 0;
+}
