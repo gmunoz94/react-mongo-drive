@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import "./styles/custom.css"
-import HomeNavbar from './components/Navbar'
-import Homepage from './components/Homepage'
+import HomeNavbar from './pages/universalComponents/HomeNavbar'
+import Homepage from './pages/Homepage'
 
 function App() {
 
