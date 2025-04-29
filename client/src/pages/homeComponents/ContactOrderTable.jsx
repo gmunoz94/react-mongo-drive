@@ -3,7 +3,7 @@ import { Card, Table, Container, Button } from 'react-bootstrap'
 
 function ContactOrderTable() {
   return (
-    <Card>
+    <Card className='home-card'>
       <Card.Header className='text-center fs-4' >Contact Orders</Card.Header>
       <Card.Body >
         <Container className='table-container'>

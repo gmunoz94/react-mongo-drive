@@ -14,10 +14,7 @@ function HomeNavbar() {
           <Nav className='me-auto'>
             <Link to='/' className='nav-link'>Home</Link>
             <Link to='#Schedule' className='nav-link'>Schedule</Link>
-            <NavDropdown title="Patients" id="patient-nav-dropdown">
-              <Link className='dropdown-item' to="#NewPatient">New Patient</Link>
-              <Link className='dropdown-item' to="/searchPatients">Search Patients</Link>
-            </NavDropdown>
+            <Link to='/patients' className='nav-link'>Patients</Link>
             <NavDropdown title="Orders" id="order-nav-dropdown">
               <Link className='dropdown-item' to="#PendingGlassesOrders">Pending Glasses Orders</Link>
               <Link className='dropdown-item' to="#PendingContactsOrders">Pending Contacts Orders</Link>

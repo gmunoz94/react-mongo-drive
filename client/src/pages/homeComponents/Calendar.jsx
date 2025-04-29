@@ -6,7 +6,7 @@ import FCalendar from './FullCalendar';
 function Calendar() {
 
   return (
-    <Card>
+    <Card className='home-card'>
       <Card.Header className='text-center fs-4' >Today's Schedule</Card.Header>
       <Card.Body >
         <Container className='schedule-container'>

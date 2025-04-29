@@ -6,7 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from './pages/Homepage.jsx';
 import Profile from './pages/Profile.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
-import SearchPatient from './pages/SearchPatient.jsx';
+import SearchPatient from './pages/patientComponents/SearchPatient.jsx';
+import NewPatient from './pages/patientComponents/NewPatient.jsx';
+import Patients from './pages/Patients.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,8 +27,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: 'searchPatients',
-    element: <SearchPatient />
+    path: '/patients',
+    element: <Patients />
   }
 
 ])

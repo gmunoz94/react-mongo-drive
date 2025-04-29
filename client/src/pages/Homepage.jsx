@@ -9,15 +9,15 @@ function Homepage() {
   return (
     <div>
       <HomeNavbar />
-      <Container fluid >
+      <Container fluid style={{ paddingInline: "35px" }}>
         <Row>
-          <Col lg={12} xl={4} style={{ padding: "35px" }}>
+          <Col lg={12} xl={4} style={{ paddingTop: "35px" }}>
             <Calendar />
           </Col>
-          <Col lg={12} xl={4} style={{ padding: "35px" }}>
+          <Col lg={12} xl={4} style={{ paddingTop: "35px" }}>
             <GlassesOrderTable />
           </Col>
-          <Col lg={12} xl={4} style={{ padding: "35px" }}>
+          <Col lg={12} xl={4} style={{ paddingTop: "35px" }}>
             <ContactOrderTable />
           </Col>
         </Row>

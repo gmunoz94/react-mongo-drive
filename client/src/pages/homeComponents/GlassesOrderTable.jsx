@@ -4,7 +4,7 @@ import { Card, Table, Container, Button } from 'react-bootstrap'
 
 function GlassesOrderTable() {
   return (
-    <Card bg='tertiary' text='dark' >
+    <Card bg='tertiary' text='dark' className='home-card'>
       <Card.Header className='text-center fs-4' >Glasses Orders</Card.Header>
       <Card.Body >
         <Container className='table-container'>
