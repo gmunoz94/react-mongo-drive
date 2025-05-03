@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.8",
     "@fullcalendar/core": "^6.1.17",
     "@fullcalendar/daygrid": "^6.1.17",
     "@fullcalendar/react": "^6.1.17",
     "@fullcalendar/timegrid": "^6.1.17",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.5",
+    "graphql": "^16.11.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-calendly": "^4.3.1",

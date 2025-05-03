@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node src/server"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +12,11 @@
   "description": "",
   "dependencies": {
     "@apollo/server": "^4.12.0",
+    "@graphql-tools/mock": "^9.0.22",
+    "@graphql-tools/schema": "^10.0.23",
     "express": "^5.1.0",
     "graphql": "^16.10.0",
+    "graphql-tag": "^2.12.6",
     "mongodb": "^6.16.0",
     "mongoose": "^8.13.2"
   }
