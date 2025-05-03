@@ -2,8 +2,13 @@
   font-size: .85rem;
 }
 
+.container {
+  max-width: 1450px;
+}
+
 .table-data {
   font-size: .7rem;
+  line-height: 30px;
 }
 
 .card-body {
@@ -22,17 +27,45 @@
   margin-bottom: auto;
 }
 
+.form-control, .form-select {
+  font-size: .8rem;
+}
 
 .table {
   overflow-y: scroll;
 
 }
 
-/* .schedule-container {
-  flex-grow: 1;
-  max-height: 375px;
-  overflow-y: auto;
-} */
+.patient-info-container {
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 35px;
+}
+
+.patient-info-box1 {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.patient-info-box2 {
+  text-align: end;
+  display: flex;
+  padding-right: 10px;
+}
+
+.patient-info-text {
+  margin-bottom: 5px;
+}
+
+.patient-bottom-container {
+  border-radius: 10px;
+  padding: 20px;
+  justify-content: space-evenly;
+}
 
 .schedule-table-header {
   position: sticky;

@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx';
 import SearchPatient from './pages/patientComponents/SearchPatient.jsx';
 import NewPatient from './pages/patientComponents/NewPatient.jsx';
 import Patients from './pages/Patients.jsx';
+import PatientProfile from './pages/PatientProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/patients',
     element: <Patients />
+  },
+  {
+    path: 'patients/:id',
+    element: <PatientProfile />
   }
 
 ])
