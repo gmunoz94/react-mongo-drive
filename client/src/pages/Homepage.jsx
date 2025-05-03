@@ -11,13 +11,13 @@ function Homepage() {
       <HomeNavbar />
       <Container fluid style={{ paddingInline: "35px" }}>
         <Row>
-          <Col lg={12} xl={4} style={{ paddingTop: "35px" }}>
+          <Col lg={12} xl={4} style={{ paddingTop: "35px", paddingBottom: "35px" }}>
             <Calendar />
           </Col>
-          <Col lg={12} xl={4} style={{ paddingTop: "35px" }}>
+          <Col lg={12} xl={4} style={{ paddingTop: "35px", paddingBottom: "35px" }}>
             <GlassesOrderTable />
           </Col>
-          <Col lg={12} xl={4} style={{ paddingTop: "35px" }}>
+          <Col lg={12} xl={4} style={{ paddingTop: "35px", paddingBottom: "35px" }}>
             <ContactOrderTable />
           </Col>
         </Row>

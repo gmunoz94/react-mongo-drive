@@ -36,7 +36,6 @@ const SearchPatient = () =>{
 
 	return(
 		<>
-			{/* <HomeNavbar /> */}
 			<Container fluid className='mt-3'>
 				<Card>
 					<Card.Header className='text-center fs-4'>Search Patients</Card.Header>
@@ -56,6 +55,10 @@ const SearchPatient = () =>{
 										<Form.Group as={Col} controlId="formDateOfBirth">
 											<Form.Label>Date Of Birth</Form.Label>
 											<Form.Control type='date' name='dateOfBirth'/>
+										</Form.Group>
+										<Form.Group as={Col} controlId="formPhoneNumber">
+											<Form.Label>Phone Number</Form.Label>
+											<Form.Control type='text' name='phoneNumber' placeholder='Phone Number' />
 										</Form.Group>
 									</Row>
 									<Row className='p-3'>
