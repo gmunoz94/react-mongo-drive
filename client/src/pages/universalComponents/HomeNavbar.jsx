@@ -18,7 +18,7 @@ function HomeNavbar() {
             <NavDropdown title="Orders" id="order-nav-dropdown">
               <Link className='dropdown-item' to="#PendingGlassesOrders">Pending Glasses Orders</Link>
               <Link className='dropdown-item' to="#PendingContactsOrders">Pending Contacts Orders</Link>
-              <Link className='dropdown-item' to="#PendingOrders">All Pending Orders</Link>
+              <Link className='dropdown-item' to="/orders/all">All Pending Orders</Link>
             </NavDropdown>
             <NavDropdown title="Reports" id="order-nav-dropdown">
               <Link className='dropdown-item' to="#SalesReports">Sales</Link>

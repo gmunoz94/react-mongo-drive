@@ -11,6 +11,7 @@ import NewPatient from './pages/patientComponents/NewPatient.jsx';
 import Patients from './pages/Patients.jsx';
 import PatientProfile from './pages/PatientProfile.jsx';
 import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+import AllOrders from './pages/AllOrders.jsx';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: 'patients/:id',
     element: <PatientProfile />
+  },
+  {
+    path: '/orders/all',
+    element: <AllOrders />
   }
 
 ])
