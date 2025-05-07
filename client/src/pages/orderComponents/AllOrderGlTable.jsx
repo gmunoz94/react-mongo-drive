@@ -1,14 +1,15 @@
 import React from 'react'
 import { Card, Table, Container, Button } from 'react-bootstrap'
 
-function OrderClTable() {
-  const openClOrders = [
+
+function OrderGlTable() {
+  const openGlOrders = [
     {
       orderId: "1",
       orderDate: "04/25/2025",
       firstName: "Gerardo",
       lastName: "Munoz",
-      manufacturer: "Alcon",
+      lab: "In House",
       status: "ordered"
     },
     {
@@ -16,7 +17,7 @@ function OrderClTable() {
       orderDate: "04/21/2025",
       firstName: "Jaime",
       lastName: "Vicencio",
-      manufacturer: "Bausch & Lomb",
+      lab: "Walman",
       status: "ordered"
     },
     {
@@ -24,7 +25,7 @@ function OrderClTable() {
       orderDate: "04/01/2025",
       firstName: "Bailey",
       lastName: "Baker",
-      manufacturer: "Acuvue",
+      lab: "Walman",
       status: "ordered"
     },
     {
@@ -32,7 +33,7 @@ function OrderClTable() {
       orderDate: "04/13/2025",
       firstName: "Megan",
       lastName: "Trevino",
-      manufacturer: "Dailies",
+      lab: "In House",
       status: "ordered"
     },
     {
@@ -40,45 +41,46 @@ function OrderClTable() {
       orderDate: "03/31/2025",
       firstName: "Allison",
       lastName: "Merchant",
-      manufacturer: "Alcon",
+      lab: "Nassau",
       status: "ordered"
     },
   ]
 
   return (
-    <Card className='home-card'>
-      <Card.Header className='text-center fs-4' >Contact Orders</Card.Header>
+    <Card bg='tertiary' text='dark' className='home-card'>
+      <Card.Header className='text-center fs-4' >Glasses Orders</Card.Header>
       <Card.Body >
         <Container className='table-container'>
-          <Table hover striped bordered size='sm'>
-            <thead >
+          <Table hover striped bordered variant='light' size='sm' >
+            <thead>
               <tr>
                 <th className='table-header'>Order Date</th>
                 <th className='table-header'>Patient Name</th>
-                <th className='table-header'>Manufacturer</th>
+                <th className='table-header'>Lab</th>
                 <th className='table-header'>Status</th>
               </tr>
             </thead>
             <tbody>
-              {openClOrders.map((order) => order === null ? (
+              {openGlOrders.map((order) => order === null ? (
                 <tr>
-                  <td colSpan={4}>No Orders</td>
+                  <td colSpan={4}>No Pending Glasses Orders</td>
                 </tr>
               ) : (
                 <tr key={order.orderId}>
-                  <td  className='table-data'>{order.orderDate}</td>
-                  <td  className='table-data'>{order.firstName} {order.lastName}</td>
-                  <td  className='table-data'>{order.manufacturer}</td>
-                  <td  className='table-data'>{order.status}</td>
-                </tr>
+                <td  className='table-data'>{order.orderDate}</td>
+                <td  className='table-data'>{order.firstName} {order.lastName}</td>
+                <td  className='table-data'>{order.lab}</td>
+                <td  className='table-data'>{order.status}</td>
+              </tr>
               ))}
             </tbody>
           </Table>
         </Container>
       </Card.Body>
-      <Button variant='secondary' className='order-button' href='#AllContactOrders'>View All Contact Orders</Button>
+      <Button variant='secondary' className='order-button' href='/orders/glasses'>View All Glasses Orders</Button>
     </Card>
   )
+
 }
 
-export default OrderClTable;
+export default OrderGlTable

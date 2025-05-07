@@ -6,12 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from './pages/Homepage.jsx';
 import Profile from './pages/Profile.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
-import SearchPatient from './pages/patientComponents/SearchPatient.jsx';
-import NewPatient from './pages/patientComponents/NewPatient.jsx';
 import Patients from './pages/Patients.jsx';
 import PatientProfile from './pages/PatientProfile.jsx';
 import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import AllOrders from './pages/AllOrders.jsx';
+import AllGlOrders from './pages/AllGlOrders.jsx';
+import AllClOrders from './pages/AllClOrders.jsx';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -45,6 +45,14 @@ const router = createBrowserRouter([
   {
     path: '/orders/all',
     element: <AllOrders />
+  },
+  {
+    path: '/orders/glasses',
+    element: <AllGlOrders />
+  },
+  {
+    path: '/orders/contacts',
+    element: <AllClOrders />
   }
 
 ])

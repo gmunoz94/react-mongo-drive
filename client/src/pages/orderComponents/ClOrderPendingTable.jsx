@@ -1,53 +1,11 @@
 import React from 'react'
 import { Card, Table, Container, Button } from 'react-bootstrap'
 
-function ContactOrderTable() {
-  const openClOrders = [
-    {
-      orderId: "1",
-      orderDate: "04/25/2025",
-      firstName: "Gerardo",
-      lastName: "Munoz",
-      manufacturer: "Alcon",
-      status: "ordered"
-    },
-    {
-      orderId: "2",
-      orderDate: "04/21/2025",
-      firstName: "Jaime",
-      lastName: "Vicencio",
-      manufacturer: "Bausch & Lomb",
-      status: "ordered"
-    },
-    {
-      orderId: "3",
-      orderDate: "04/01/2025",
-      firstName: "Bailey",
-      lastName: "Baker",
-      manufacturer: "Acuvue",
-      status: "ordered"
-    },
-    {
-      orderId: "4",
-      orderDate: "04/13/2025",
-      firstName: "Megan",
-      lastName: "Trevino",
-      manufacturer: "Dailies",
-      status: "ordered"
-    },
-    {
-      orderId: "5",
-      orderDate: "03/31/2025",
-      firstName: "Allison",
-      lastName: "Merchant",
-      manufacturer: "Alcon",
-      status: "ordered"
-    },
-  ]
+const ClOrderPendingTable = ({setClModalShow, openClOrders}) => {
 
   return (
     <Card className='home-card'>
-      <Card.Header className='text-center fs-4' >Contact Orders</Card.Header>
+      <Card.Header className='text-center fs-4' >Pending Contact Orders</Card.Header>
       <Card.Body >
         <Container className='table-container'>
           <Table hover striped bordered size='sm'>
@@ -56,6 +14,12 @@ function ContactOrderTable() {
                 <th className='table-header'>Order Date</th>
                 <th className='table-header'>Patient Name</th>
                 <th className='table-header'>Manufacturer</th>
+                <th className='table-header'>Brand</th>
+                <th className='table-header'>OD Boxes</th>
+                <th className='table-header'>OD Box Type</th>
+                <th className='table-header'>OS Boxes</th>
+                <th className='table-header'>OD Box Type</th>
+                <th className='table-header'>More Orders?</th>
                 <th className='table-header'>Status</th>
               </tr>
             </thead>
@@ -67,9 +31,16 @@ function ContactOrderTable() {
               ) : (
                 <tr key={order.orderId}>
                   <td  className='table-data'>{order.orderDate}</td>
-                  <td  className='table-data'>{order.firstName} {order.lastName}</td>
+                  <td  className='table-data'><a href={`/patients/${order.patientId}`}>{order.firstName} {order.lastName}</a></td>
                   <td  className='table-data'>{order.manufacturer}</td>
+                  <td  className='table-data'>{order.brand}</td>
+                  <td  className='table-data'>{order.odBoxes}</td>
+                  <td  className='table-data'>{order.odBoxType}</td>
+                  <td  className='table-data'>{order.osBoxes}</td>
+                  <td  className='table-data'>{order.osBoxType}</td>
+                  <td  className='table-data'>{order.moreOrders}</td>
                   <td  className='table-data'>{order.status}</td>
+                  <td  className='table-data'><Button size='sm' variant='link' onClick={() => setClModalShow({ open: true, order: {order}})}>Edit</Button></td>
                 </tr>
               ))}
             </tbody>
@@ -81,4 +52,4 @@ function ContactOrderTable() {
   )
 }
 
-export default ContactOrderTable
+export default ClOrderPendingTable

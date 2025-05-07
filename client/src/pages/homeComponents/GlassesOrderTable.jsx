@@ -77,7 +77,7 @@ function GlassesOrderTable() {
           </Table>
         </Container>
       </Card.Body>
-      <Button variant='secondary' className='order-button' href='#AllGlassesOrders'>View All Glasses Orders</Button>
+      <Button variant='secondary' className='order-button' href='/orders/glasses'>View All Glasses Orders</Button>
     </Card>
   )
 

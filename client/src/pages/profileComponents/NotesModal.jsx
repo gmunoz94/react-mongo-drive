@@ -1,13 +1,25 @@
-import React from 'react'
-import { Modal, Row, Col, Table, Container, Tab } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Modal, Row, Col, Table, Container, Tab, Button, Form } from 'react-bootstrap';
 
-const NotesModal = (props) => {
-  const order = props.order
-  if (props.show === true) {
-    if (order.r.notes === undefined) {
+const NotesModal = ({show, message, onHide}) => {
+
+  const [ addNote, setAddNote] = useState({
+    open:"none"
+  })
+
+  const handleAddNote = () => {
+    // Need to make database connection to add note to an order
+    setAddNote({ open: "hidden" })
+    alert("Note Added")
+  }
+  
+  if (show === true) {
+    const notes = message.order.notes
+    if (notes === undefined) {
       return (
         <Modal
-        {...props}
+        show={show}
+        onHide={onHide}
         size='lg'
         aria-labelledby='contained-modal-title-vcenter'
         centered
@@ -19,15 +31,37 @@ const NotesModal = (props) => {
         </Modal.Header>
         <Modal.Body>
           <h6>No Notes</h6>
+          {addNote.open === "none" ? (
+              <Form style={{ display: "none"}} >
+                <Form.Group>
+                  <Form.Control></Form.Control>
+                </Form.Group>
+              </Form>
+              ) : (
+              <Form>
+                <Form.Group>
+                  <Form.Control onSubmit={handleAddNote}></Form.Control>
+                </Form.Group>
+              </Form>
+            )
+            }
         </Modal.Body>
+        <Modal.Footer>
+          { addNote.open === "hidden" ? (
+            <Button onClick={() => setAddNote({ open: true })}>Add Note</Button>
+          ) : (
+            <Button onClick={handleAddNote}>Submit</Button>
+          )
+          }
+        </Modal.Footer>
       </Modal>
       )
     }
 
-    const notes = order.r.notes
     return (
       <Modal
-        {...props}
+        show={show}
+        onHide={onHide}
         size='lg'
         aria-labelledby='contained-modal-title-vcenter'
         centered
@@ -47,11 +81,7 @@ const NotesModal = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {notes.map((notes) => notes === null ? (
-                  <tr>
-                    <td>No Notes</td>
-                  </tr>
-                ) : (
+                {notes.map((notes) =>  (
                   <tr key={notes.noteId}>
                     <td className='table-data'>{notes.author}</td>
                     <td className='table-data'>{notes.message}</td>
@@ -59,8 +89,30 @@ const NotesModal = (props) => {
                 ))}
               </tbody>
             </Table>
+            {addNote.open === "hidden" ? (
+              <Form style={{ display: "none"}} >
+                <Form.Group>
+                  <Form.Control></Form.Control>
+                </Form.Group>
+              </Form>
+              ) : (
+              <Form>
+                <Form.Group>
+                  <Form.Control onSubmit={handleAddNote}></Form.Control>
+                </Form.Group>
+              </Form>
+            )
+            }
           </Container>
         </Modal.Body>
+        <Modal.Footer>
+          { addNote.open === "hidden" ? (
+            <Button onClick={() => setAddNote({ open: true })}>Add Note</Button>
+          ) : (
+            <Button onClick={handleAddNote}>Submit</Button>
+          )
+          }
+        </Modal.Footer>
       </Modal>
     )
   } else {

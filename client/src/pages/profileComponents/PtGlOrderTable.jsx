@@ -3,9 +3,8 @@ import { Card, Table, Container, Button } from 'react-bootstrap'
 
 
 function PtGlOrderTable({ptOrders, setNotesModalShow}) {
-  const orders = ptOrders
-  const pendingGlOrders = orders[0].pendingOrders.glasses
-  const completeGlOrders = orders[0].completeOrders.glasses
+  const pendingGlOrders = ptOrders.pendingOrders.glasses
+  const completeGlOrders = ptOrders.completeOrders.glasses
 
   return (
     <Card bg='tertiary' text='dark' className='home-card'>
@@ -26,19 +25,19 @@ function PtGlOrderTable({ptOrders, setNotesModalShow}) {
               </tr>
             </thead>
             <tbody>
-              {pendingGlOrders.map((r) => r === null ? (
+              {pendingGlOrders.map((order) => order === null ? (
                 <tr>
                   <td colSpan={4}>No Pending Orders</td>
                 </tr>
               ) : (
-                <tr key={r.orderId}>
-                  <td className='table-data'>{r.orderDate}</td>
-                  <td className='table-data'>{r.frameBrand}</td>
-                  <td className='table-data'>{r.frameModel}</td>
-                  <td className='table-data'>{r.lensType}</td>
-                  <td className='table-data'>{r.lab}</td>
-                  <td className='table-data'>{r.status}</td>
-                  <td className='table-data'><a href="#modal" style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {r} })} >📝</a></td>
+                <tr key={order.orderId}>
+                  <td className='table-data'>{order.orderDate}</td>
+                  <td className='table-data'>{order.frameBrand}</td>
+                  <td className='table-data'>{order.frameModel}</td>
+                  <td className='table-data'>{order.lensType}</td>
+                  <td className='table-data'>{order.lab}</td>
+                  <td className='table-data'>{order.status}</td>
+                  <td className='table-data'><a href="#modal" style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {order}, addNote: false })} >📝</a></td>
                   <td className='table-data'><Button size='sm' variant='link'>Edit</Button></td>
                 </tr>
               ))}
@@ -58,19 +57,19 @@ function PtGlOrderTable({ptOrders, setNotesModalShow}) {
               </tr>
             </thead>
             <tbody>
-              {completeGlOrders.map((r) => r === null ? (
+              {completeGlOrders.map((order) => order === null ? (
                 <tr>
                   <td colSpan={4}>No Pending Orders</td>
                 </tr>
               ) : (
-                <tr key={r.orderId}>
-                  <td className='table-data'>{r.orderDate}</td>
-                  <td className='table-data'>{r.frameBrand}</td>
-                  <td className='table-data'>{r.frameModel}</td>
-                  <td className='table-data'>{r.lensType}</td>
-                  <td className='table-data'>{r.lab}</td>
-                  <td className='table-data'>{r.status}</td>
-                  <td className='table-data'><a href="#modal" style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {r} })} >📝</a></td>
+                <tr key={order.orderId}>
+                  <td className='table-data'>{order.orderDate}</td>
+                  <td className='table-data'>{order.frameBrand}</td>
+                  <td className='table-data'>{order.frameModel}</td>
+                  <td className='table-data'>{order.lensType}</td>
+                  <td className='table-data'>{order.lab}</td>
+                  <td className='table-data'>{order.status}</td>
+                  <td className='table-data'><a href="#modal" style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {order} })} >📝</a></td>
                   <td className='table-data'><Button size='sm' variant='link'>Edit</Button></td>
                 </tr>
               ))}

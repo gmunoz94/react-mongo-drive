@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Form, Row, Col, Button, Card } from 'react-bootstrap';
-import HomeNavbar from '../universalComponents/HomeNavbar';
 
 const NewPatient = () => {
   return (

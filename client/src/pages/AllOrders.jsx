@@ -1,8 +1,8 @@
 import React from 'react'
 import HomeNavbar from './universalComponents/HomeNavbar'
 import { Container, Row, Col } from 'react-bootstrap'
-import OrderGlTable from './orderComponents/OrderGlTable'
-import OrderClTable from './orderComponents/OrderClTable'
+import AllOrderGlTable from './orderComponents/AllOrderGlTable'
+import AllOrderClTable from './orderComponents/AllOrderClTable'
 
 const AllOrders = () => {
   return (
@@ -11,10 +11,10 @@ const AllOrders = () => {
       <Container style={{ padding: "35px"}}>
         <Row>
           <Col lg={12} xl={6} style={{ paddingTop: "35px"}}>
-            <OrderGlTable />
+            <AllOrderGlTable />
           </Col>
           <Col lg={12} xl={6} style={{ paddingTop: "35px"}}>
-            <OrderClTable />
+            <AllOrderClTable />
           </Col>
         </Row>
       </Container>

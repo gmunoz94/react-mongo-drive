@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Form, Row, Col, Button, Table, Card } from 'react-bootstrap';
-import HomeNavbar from '../universalComponents/HomeNavbar';
 
 const SearchPatient = () =>{
 	const searchData = [
@@ -13,22 +12,29 @@ const SearchPatient = () =>{
 		},
 		{
 			patient_id: "2",
-			lastName: "munoz",
-			firstName: "julie",
+			lastName: "Vicencio",
+			firstName: "Jaime",
 			dateOfBirth: "02/02/2222",
 			phoneNumber: "7894561232"
 		},
 		{
 			patient_id: "3",
-			lastName: "munoz",
-			firstName: "analisa",
+			lastName: "Baker",
+			firstName: "Bailey",
 			dateOfBirth: "03/03/3333",
 			phoneNumber: "3216549878"
 		},
 		{
 			patient_id: "4",
-			lastName: "munoz",
-			firstName: "marissa",
+			lastName: "Trevino",
+			firstName: "Megan",
+			dateOfBirth: "04/04/4444",
+			phoneNumber: "1234567898"
+		},
+		{
+			patient_id: "5",
+			lastName: "Merchant",
+			firstName: "Allison",
 			dateOfBirth: "04/04/4444",
 			phoneNumber: "1234567898"
 		}

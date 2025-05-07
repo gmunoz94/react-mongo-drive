@@ -3,8 +3,8 @@ import { Card, Table, Container, Button } from 'react-bootstrap'
 
 function PtClOrderTable({ptOrders, setNotesModalShow}) {
   const orders = ptOrders
-  const pendingCLOrders = orders[0].pendingOrders.contacts
-  const completeCLOrders = orders[0].completeOrders.contacts
+  const pendingCLOrders = orders.pendingOrders.contacts
+  const completeCLOrders = orders.completeOrders.contacts
   
 
   return (
@@ -28,19 +28,19 @@ function PtClOrderTable({ptOrders, setNotesModalShow}) {
                 </tr>
               </thead>
               <tbody>
-                {pendingCLOrders.map((r) => r === null ? (
+                {pendingCLOrders.map((order) => order === null ? (
                   <tr>
                     <td colSpan={4}>No Pending Orders</td>
                   </tr>
                 ) : (
-                  <tr key={r.orderId}>
-                    <td className='table-data'>{r.orderDate}</td>
-                    <td className='table-data'>{r.odBrand}</td>
-                    <td className='table-data'>{r.odBoxes}</td>
-                    <td className='table-data'>{r.osBrand}</td>
-                    <td className='table-data'>{r.osBoxes}</td>
-                    <td className='table-data'>{r.status}</td>
-                    <td className='table-data'><a href='#modal' style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {r} })}>📝</a></td>
+                  <tr key={order.orderId}>
+                    <td className='table-data'>{order.orderDate}</td>
+                    <td className='table-data'>{order.odBrand}</td>
+                    <td className='table-data'>{order.odBoxes}</td>
+                    <td className='table-data'>{order.osBrand}</td>
+                    <td className='table-data'>{order.osBoxes}</td>
+                    <td className='table-data'>{order.status}</td>
+                    <td className='table-data'><a href='#modal' style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {order} })}>📝</a></td>
                     <td className='table-data'><Button size='sm' variant='link'>Edit</Button></td>                    
                   </tr>
                 ))}
@@ -60,19 +60,19 @@ function PtClOrderTable({ptOrders, setNotesModalShow}) {
                 </tr>
               </thead>
               <tbody>
-                {completeCLOrders.map((r) => r === null ? (
+                {completeCLOrders.map((order) => order === null ? (
                   <tr>
                     <td colSpan={4}>No Pending Orders</td>
                   </tr>
                 ) : (
-                  <tr key={r.orderId}>
-                    <td className='table-data'>{r.orderDate}</td>
-                    <td className='table-data'>{r.odBrand}</td>
-                    <td className='table-data'>{r.odBoxes}</td>
-                    <td className='table-data'>{r.osBrand}</td>
-                    <td className='table-data'>{r.osBoxes}</td>
-                    <td className='table-data'>{r.status}</td>
-                    <td className='table-data'><a href='#modal' style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {r} })}>📝</a></td>
+                  <tr key={order.orderId}>
+                    <td className='table-data'>{order.orderDate}</td>
+                    <td className='table-data'>{order.odBrand}</td>
+                    <td className='table-data'>{order.odBoxes}</td>
+                    <td className='table-data'>{order.osBrand}</td>
+                    <td className='table-data'>{order.osBoxes}</td>
+                    <td className='table-data'>{order.status}</td>
+                    <td className='table-data'><a href='#modal' style={{textDecoration: 'none', fontSize: '1rem'}} onClick={() => setNotesModalShow({ open: true, message: {order} })}>📝</a></td>
                     <td className='table-data'><Button size='sm' variant='link'>Edit</Button></td>
                   </tr>
                 ))}
