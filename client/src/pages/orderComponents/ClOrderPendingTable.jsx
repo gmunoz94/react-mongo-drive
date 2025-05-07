@@ -47,7 +47,6 @@ const ClOrderPendingTable = ({setClModalShow, openClOrders}) => {
           </Table>
         </Container>
       </Card.Body>
-      <Button variant='secondary' className='order-button' href='/orders/contacts'>View All Contact Orders</Button>
     </Card>
   )
 }
