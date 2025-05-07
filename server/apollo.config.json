@@ -1,0 +1,15 @@
+{
+
+  "client": {
+
+    "service": {
+
+      "name": "react-mongo-drive",
+
+      "url": "http://localhost:4000/graphql"
+
+    }
+
+  }
+
+}

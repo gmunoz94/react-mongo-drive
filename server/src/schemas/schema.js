@@ -3,7 +3,7 @@ const gql = require("graphql-tag");
 const typeDefs = gql`
   type Query {
     "Get Patient Data for Search"
-    searchPatient: [Patient!]
+    searchPatient(firstName: String, lastName: String, dateOfBirth: String, email: String, phoneNumber: String, streetAddress: String, city: String, state: String, zipCode: String): Patient
   }
    
   "Patient data should contain all aspects of a patient including orders and appointments"

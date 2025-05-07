@@ -1,48 +1,26 @@
 const { ApolloServer } = require("@apollo/server");
 const { startStandaloneServer } = require("@apollo/server/standalone");
-const typeDefs = require('./schema');
-const { addMocksToSchema } = require("@graphql-tools/mock");
-const { makeExecutableSchema } = require("@graphql-tools/schema");
-
-const mocks = {
-  Query: () => ({
-    searchPatient: () => [...new Array(6)],
-  }),
-  Patient: () => ({
-    id: () => "1",
-    firstName: () => "Evan",
-    lastName: () => "O'laughlin",
-    dateOfBirth: () => "11/06/1994",
-    email: () => "evano@gmail.com",
-    phoneNumber: () => "1111111111",
-    streetAddress: () => "123 main st",
-    city: () => "Austin",
-    state: () => "TX",
-    zipCode: () => "78717",
-    glOrders: () => {
-      return {
-        id: 1,
-        orderDate: "04/25/2025",
-        frameBrand: "Armani Exchange",
-        frameModel: "AX 1035",
-        lensType: "SV",
-        lab: "In House",
-        status: "Pending",
-      };
-    },
-    modulesCount: () => 6,
-  }),
-};
+const typeDefs = require('./schemas/schema');
+const resolvers = require('./schemas/resolvers');
+const PatientAPI = require("./datasources/patient-api");
 
 async function startApolloServer() {
   const server = new ApolloServer({
-    schema: addMocksToSchema({
-      schema: makeExecutableSchema({typeDefs}),
-      mocks,
-    })
-  })
+    typeDefs,
+    resolvers,
+  });
 
-  const { url } = await startStandaloneServer(server);
+  const { url } = await startStandaloneServer(server, {
+    context: async () => {
+      const { cache } = server;
+
+      return {
+        dataSources: {
+          patientAPI: new PatientAPI({ cache }),
+        }
+      }
+    }
+  });
   console.log(`
     Server is Running!
     Query at ${url}`
