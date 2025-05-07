@@ -3,6 +3,49 @@ import { Card, Table, Container, Button } from 'react-bootstrap'
 
 
 function GlassesOrderTable() {
+  const openGlOrders = [
+    {
+      orderId: "1",
+      orderDate: "04/25/2025",
+      firstName: "Gerardo",
+      lastName: "Munoz",
+      lab: "In House",
+      status: "ordered"
+    },
+    {
+      orderId: "2",
+      orderDate: "04/21/2025",
+      firstName: "Jaime",
+      lastName: "Vicencio",
+      lab: "Walman",
+      status: "ordered"
+    },
+    {
+      orderId: "3",
+      orderDate: "04/01/2025",
+      firstName: "Bailey",
+      lastName: "Baker",
+      lab: "Walman",
+      status: "ordered"
+    },
+    {
+      orderId: "4",
+      orderDate: "04/13/2025",
+      firstName: "Megan",
+      lastName: "Trevino",
+      lab: "In House",
+      status: "ordered"
+    },
+    {
+      orderId: "5",
+      orderDate: "03/31/2025",
+      firstName: "Allison",
+      lastName: "Merchant",
+      lab: "Nassau",
+      status: "ordered"
+    },
+  ]
+
   return (
     <Card bg='tertiary' text='dark' className='home-card'>
       <Card.Header className='text-center fs-4' >Glasses Orders</Card.Header>
@@ -18,47 +61,23 @@ function GlassesOrderTable() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td  className='table-data'>4/24/2025</td>
-                <td  className='table-data'>Gerardo Munoz</td>
-                <td  className='table-data'>In House</td>
-                <td  className='table-data'>Pending</td>
+              {openGlOrders.map((order) => order === null ? (
+                <tr>
+                  <td colSpan={4}>No Pending Glasses Orders</td>
+                </tr>
+              ) : (
+                <tr key={order.orderId}>
+                <td  className='table-data'>{order.orderDate}</td>
+                <td  className='table-data'>{order.firstName} {order.lastName}</td>
+                <td  className='table-data'>{order.lab}</td>
+                <td  className='table-data'>{order.status}</td>
               </tr>
-              <tr>
-                <td  className='table-data'>4/24/2025</td>
-                <td  className='table-data'>Gerardo Munoz</td>
-                <td  className='table-data'>In House</td>
-                <td  className='table-data'>Pending</td>
-              </tr>
-              <tr>
-                <td  className='table-data'>4/24/2025</td>
-                <td  className='table-data'>Gerardo Munoz</td>
-                <td  className='table-data'>In House</td>
-                <td  className='table-data'>Pending</td>
-              </tr>
-              <tr>
-                <td  className='table-data'>4/24/2025</td>
-                <td  className='table-data'>Gerardo Munoz</td>
-                <td  className='table-data'>In House</td>
-                <td  className='table-data'>Pending</td>
-              </tr>
-              <tr>
-                <td  className='table-data'>4/24/2025</td>
-                <td  className='table-data'>Gerardo Munoz</td>
-                <td  className='table-data'>In House</td>
-                <td  className='table-data'>Pending</td>
-              </tr>
-              <tr>
-                <td  className='table-data'>4/24/2025</td>
-                <td  className='table-data'>Gerardo Munoz</td>
-                <td  className='table-data'>In House</td>
-                <td  className='table-data'>Pending</td>
-              </tr>
+              ))}
             </tbody>
           </Table>
         </Container>
       </Card.Body>
-      <Button variant='secondary' className='order-button' href='#AllGlassesOrders'>View All Orders</Button>
+      <Button variant='secondary' className='order-button' href='#AllGlassesOrders'>View All Glasses Orders</Button>
     </Card>
   )
 

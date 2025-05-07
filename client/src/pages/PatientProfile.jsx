@@ -13,6 +13,18 @@ const PatientProfile = () => {
     open: false,
   })
 
+  const patientInfo = {
+    firstName: "Gerardo",
+    lastName: "Munoz",
+    dateOfBirth: "04/26/1994",
+    phoneNumber: "512-986-1629",
+    email: "gmunoz9619@gmail.com",
+    streetAddress: "10810 Gemsbuck Lodge",
+    city: "San Antonio",
+    state: "TX",
+    zipCode: "78245"
+  }
+
   const ptOrders = [
         {
           pendingOrders: {
@@ -105,14 +117,14 @@ const PatientProfile = () => {
           <Row>
             <Container className='patient-info-container bg-danger-subtle'>
               <div className='patient-info-box1'>
-                <h4>Gerardo Munoz</h4>
+                <h4>{patientInfo.firstName} {patientInfo.lastName}</h4>
                 <div style={{ display: 'flex', fontSize: ".8rem", marginTop: "8px"}}>
                   <div style={{ marginRight: "10px"}}>
                     <p className='patient-info-text'>Address:</p>
                   </div>
                   <div>
-                    <p className='patient-info-text'>10810 Gemsbuck Lodge</p>
-                    <p className='patient-info-text'>San Antonio, TX 78245</p>
+                    <p className='patient-info-text'>{patientInfo.streetAddress}</p>
+                    <p className='patient-info-text'>{patientInfo.city}, {patientInfo.state} {patientInfo.zipCode}</p>
                   </div>
                 </div>
               </div>
@@ -123,9 +135,9 @@ const PatientProfile = () => {
                   <p className='patient-info-text'>Email: </p>
                 </div>
                 <div style={{ textAlign: "start"}}>
-                  <p className='patient-info-text'>04/26/1994</p>
-                  <p className='patient-info-text'>(512) 986-1629</p>
-                  <p className='patient-info-text'>gmunoz9619@gmail.com</p>
+                  <p className='patient-info-text'>{patientInfo.dateOfBirth}</p>
+                  <p className='patient-info-text'>{patientInfo.phoneNumber}</p>
+                  <p className='patient-info-text'>{patientInfo.email}</p>
                   <a href='#edit'>Edit Patient Info</a>
                 </div>
               </div>

@@ -10,6 +10,12 @@ import SearchPatient from './pages/patientComponents/SearchPatient.jsx';
 import NewPatient from './pages/patientComponents/NewPatient.jsx';
 import Patients from './pages/Patients.jsx';
 import PatientProfile from './pages/PatientProfile.jsx';
+import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000',
+  cache: InMemoryCache,
+})
 
 const router = createBrowserRouter([
   {
@@ -40,6 +46,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
   </StrictMode>,
 )

@@ -3,7 +3,7 @@ import { Container, Form, Row, Col, Button, Table, Card } from 'react-bootstrap'
 import HomeNavbar from '../universalComponents/HomeNavbar';
 
 const SearchPatient = () =>{
-	const rows = [
+	const searchData = [
 		{
 			patient_id: "1",
 			lastName: "munoz",
@@ -80,17 +80,17 @@ const SearchPatient = () =>{
 											</tr>
 										</thead>
 										<tbody>
-											{rows.map((r) => r === null ? (
+											{searchData.map((patient) => patient === null ? (
 												<tr>
 													<td colSpan={4}>No Patients</td>
 												</tr>
 											) : (
-												<tr key={r.patient_id}>
-													<td>{r.lastName}</td>
-													<td>{r.firstName}</td>
-													<td>{r.dateOfBirth}</td>
-													<td>{r.phoneNumber}</td>
-													<td><Button value={r.patient_id} >Select</Button></td>
+												<tr key={patient.patient_id}>
+													<td>{patient.lastName}</td>
+													<td>{patient.firstName}</td>
+													<td>{patient.dateOfBirth}</td>
+													<td>{patient.phoneNumber}</td>
+													<td><Button value={patient.patient_id} href={`/patients/${patient.patient_id}`} >Select</Button></td>
 												</tr>
 											))}
 										</tbody>
