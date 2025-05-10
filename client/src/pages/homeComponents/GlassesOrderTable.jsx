@@ -15,32 +15,32 @@ function GlassesOrderTable() {
     {
       orderId: "2",
       orderDate: "04/21/2025",
-      firstName: "Jaime",
-      lastName: "Vicencio",
+      firstName: "George",
+      lastName: "Washington",
       lab: "Walman",
       status: "ordered"
     },
     {
       orderId: "3",
       orderDate: "04/01/2025",
-      firstName: "Bailey",
-      lastName: "Baker",
+      firstName: "Thomas",
+      lastName: "Edison",
       lab: "Walman",
       status: "ordered"
     },
     {
       orderId: "4",
       orderDate: "04/13/2025",
-      firstName: "Megan",
-      lastName: "Trevino",
+      firstName: "Thomas",
+      lastName: "Jefferson",
       lab: "In House",
       status: "ordered"
     },
     {
       orderId: "5",
       orderDate: "03/31/2025",
-      firstName: "Allison",
-      lastName: "Merchant",
+      firstName: "James",
+      lastName: "Madison",
       lab: "Nassau",
       status: "ordered"
     },

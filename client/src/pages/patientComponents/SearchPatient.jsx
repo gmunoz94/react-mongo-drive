@@ -5,36 +5,36 @@ const SearchPatient = () =>{
 	const searchData = [
 		{
 			patient_id: "1",
-			lastName: "munoz",
-			firstName: "gerardo",
+			lastName: "Munoz",
+			firstName: "Gerardo",
 			dateOfBirth: "01/01/1111",
 			phoneNumber: "6549873212"
 		},
 		{
 			patient_id: "2",
-			lastName: "Vicencio",
-			firstName: "Jaime",
+      firstName: "George",
+      lastName: "Washington",
 			dateOfBirth: "02/02/2222",
 			phoneNumber: "7894561232"
 		},
 		{
 			patient_id: "3",
-			lastName: "Baker",
-			firstName: "Bailey",
+      firstName: "Thomas",
+      lastName: "Edison",
 			dateOfBirth: "03/03/3333",
 			phoneNumber: "3216549878"
 		},
 		{
 			patient_id: "4",
-			lastName: "Trevino",
-			firstName: "Megan",
+      firstName: "Thomas",
+      lastName: "Jefferson",
 			dateOfBirth: "04/04/4444",
 			phoneNumber: "1234567898"
 		},
 		{
 			patient_id: "5",
-			lastName: "Merchant",
-			firstName: "Allison",
+      firstName: "James",
+      lastName: "Madison",
 			dateOfBirth: "04/04/4444",
 			phoneNumber: "1234567898"
 		}

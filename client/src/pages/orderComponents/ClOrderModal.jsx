@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Row, Form, Col, Button, Container } from 'react-bootstrap'
+import { Modal, Row, Form, Col, Button } from 'react-bootstrap'
 
 const ClOrderModal = ({ show, order, onHide, setCLModalShow }) => {
   // const order = props.order;

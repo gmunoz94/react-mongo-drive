@@ -16,7 +16,7 @@ export const PtNewGlOrder = ({frames}) => {
                 <Form.Label>Order Date</Form.Label>
                 <Form.Control type="date" name='orderDate' required />
               </Form.Group>
-              <Form.Group as={Col} controlId="formFirstName">
+              <Form.Group as={Col} controlId="formFrameBrand">
                 <Form.Label>Frame Brand</Form.Label>
                 <Form.Select type="text" placeholder="Frame Brand" name='frameBrand' required>
                 <option>Choose...</option>
@@ -25,11 +25,11 @@ export const PtNewGlOrder = ({frames}) => {
                 ))}
                 </Form.Select>
               </Form.Group>
-              <Form.Group as={Col} controlId="formLastName">
+              <Form.Group as={Col} controlId="formFrameModel">
                 <Form.Label>Model Number</Form.Label>
                 <Form.Control type="text" placeholder="Model" name='frameModel' required />
               </Form.Group>
-              <Form.Group as={Col} controlId="formLastName">
+              <Form.Group as={Col} controlId="formLensType">
                 <Form.Label>Lens Type</Form.Label>
                 <Form.Control type="text" placeholder="Lens Info" name='lensType' required />
               </Form.Group>

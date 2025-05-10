@@ -14,32 +14,32 @@ function ContactOrderTable() {
     {
       orderId: "2",
       orderDate: "04/21/2025",
-      firstName: "Jaime",
-      lastName: "Vicencio",
+      firstName: "George",
+      lastName: "Washington",
       manufacturer: "Bausch & Lomb",
       status: "ordered"
     },
     {
       orderId: "3",
       orderDate: "04/01/2025",
-      firstName: "Bailey",
-      lastName: "Baker",
+      firstName: "Thomas",
+      lastName: "Edison",
       manufacturer: "Acuvue",
       status: "ordered"
     },
     {
       orderId: "4",
       orderDate: "04/13/2025",
-      firstName: "Megan",
-      lastName: "Trevino",
+      firstName: "Thomas",
+      lastName: "Jefferson",
       manufacturer: "Dailies",
       status: "ordered"
     },
     {
       orderId: "5",
       orderDate: "03/31/2025",
-      firstName: "Allison",
-      lastName: "Merchant",
+      firstName: "James",
+      lastName: "Madison",
       manufacturer: "Alcon",
       status: "ordered"
     },
