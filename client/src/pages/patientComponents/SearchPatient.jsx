@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Form, Row, Col, Button, Table, Card } from 'react-bootstrap';
+import { Container, Form, Row, Col, Button, Table, Card, Tabs, Tab } from 'react-bootstrap';
 
 const SearchPatient = () =>{
+	
 	const searchData = [
 		{
 			patient_id: "1",
@@ -48,29 +49,51 @@ const SearchPatient = () =>{
 					<Card.Body>
 						<Row className='justify-content-center'>
 							<Col>
-								<Form>
-									<Row className='p-3'>
-										<Form.Group as={Col} controlId="formLastName">
-											<Form.Label>Last Name</Form.Label>
-											<Form.Control type='text' placeholder='Last Name' name='lastName' />
-										</Form.Group>
-										<Form.Group as={Col} controlId="formFirstName">
-											<Form.Label>First Name</Form.Label>
-											<Form.Control type='text' placeholder='First Name' name='firstName' />
-										</Form.Group>
-										<Form.Group as={Col} controlId="formDateOfBirth">
-											<Form.Label>Date Of Birth</Form.Label>
-											<Form.Control type='date' name='dateOfBirth'/>
-										</Form.Group>
-										<Form.Group as={Col} controlId="formPhoneNumber">
-											<Form.Label>Phone Number</Form.Label>
-											<Form.Control type='text' name='phoneNumber' placeholder='Phone Number' />
-										</Form.Group>
-									</Row>
-									<Row className='p-3'>
-										<Button type='submit'>Search</Button>
-									</Row>
-								</Form>
+								<Tabs justify defaultActiveKey="lastFirst">
+									<Tab eventKey="lastFirst" title="Name">
+										<Form>
+											<Row className='p-3'>
+												<Form.Group as={Col} controlId="formLastName">
+													<Form.Label>Last Name</Form.Label>
+													<Form.Control type='text' placeholder='Last Name' name='lastName' />
+												</Form.Group>
+												<Form.Group as={Col} controlId="formFirstName">
+													<Form.Label>First Name</Form.Label>
+													<Form.Control type='text' placeholder='First Name' name='firstName' />
+												</Form.Group>
+											</Row>
+											<Row className='p-3'>
+												<Button type='submit'>Search</Button>
+											</Row>
+										</Form>
+									</Tab>
+									<Tab eventKey="dateOfBirth" title="Date of Birth">
+										<Form>
+											<Row className='p-3 justify-content-center'>
+												<Form.Group className='col-6' controlId="formDateOfBirth">
+													<Form.Label>Date Of Birth</Form.Label>
+													<Form.Control type='date' name='dateOfBirth'/>
+												</Form.Group>
+											</Row>
+											<Row className='p-3'>
+												<Button type='submit'>Search</Button>
+											</Row>
+										</Form>
+									</Tab>
+									<Tab eventKey="phoneNumber" title="Phone Number">
+										<Form>
+											<Row className='p-3 justify-content-center'>
+												<Form.Group className='col-6' controlId="formPhoneNumber">
+													<Form.Label>Phone Number</Form.Label>
+													<Form.Control type='text' name='phoneNumber' placeholder='Phone Number' />
+												</Form.Group>
+											</Row>
+											<Row className='p-3'>
+												<Button type='submit'>Search</Button>
+											</Row>
+										</Form>
+									</Tab>
+								</Tabs>
 							</Col>
 						</Row>
 						<Row className='justify-content-center'>

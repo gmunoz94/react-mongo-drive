@@ -1,45 +1,21 @@
-const { ApolloServer } = require("@apollo/server");
-const { startStandaloneServer } = require("@apollo/server/standalone");
-const typeDefs = require('./schema');
-const { addMocksToSchema } = require("@graphql-tools/mock");
-const { makeExecutableSchema } = require("@graphql-tools/schema");
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import typeDefs from './schema.js';
+import mongoose from 'mongoose';
+import express from 'express';
+import db from './configuration/dbConfig.js'
 
-const mocks = {
-  Query: () => ({
-    searchPatient: () => [...new Array(6)],
-  }),
-  Patient: () => ({
-    id: () => "1",
-    firstName: () => "Thomas",
-    lastName: () => "Edison",
-    dateOfBirth: () => "1995-04-02",
-    email: () => "evano@gmail.com",
-    phoneNumber: () => "1111111111",
-    streetAddress: () => "123 main st",
-    city: () => "Austin",
-    state: () => "TX",
-    zipCode: () => "78913",
-    glOrders: () => {
-      return {
-        id: 1,
-        orderDate: "04/25/2025",
-        frameBrand: "Armani Exchange",
-        frameModel: "AX 1035",
-        lensType: "SV",
-        lab: "In House",
-        status: "Pending",
-      };
-    },
-    modulesCount: () => 6,
-  }),
-};
+const PORT = process.env.PORT || 3001;
+const app = express();
+
+mongoose.set('strictQuery', false)
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 async function startApolloServer() {
   const server = new ApolloServer({
-    schema: addMocksToSchema({
-      schema: makeExecutableSchema({typeDefs}),
-      mocks,
-    })
+    typeDefs,
   })
 
   const { url } = await startStandaloneServer(server);

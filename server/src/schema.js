@@ -1,9 +1,9 @@
-const gql = require("graphql-tag");
+import gql from "graphql-tag"
  
 const typeDefs = gql`
   type Query {
     "Get Patient Data for Search"
-    searchPatient: [Patient!]
+    allPatients: [Patient!]
   }
    
   "Patient data should contain all aspects of a patient including orders and appointments"
@@ -58,5 +58,4 @@ const typeDefs = gql`
     message: String!
   }
 `;
- 
-module.exports = typeDefs;
+export default typeDefs;

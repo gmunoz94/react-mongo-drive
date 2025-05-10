@@ -1,5 +1,30 @@
-const mongoose = require('mongoose');
+import { MongoClient, ServerApiVersion } from "mongodb";
+import 'dotenv/config'
 
-mongoose.connect(process.env.ATLAS_URI);
+const uri = process.env.ATLAS_URI;
 
-module.exports = mongoose.connection;
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+const runServer = async () => {
+  try {
+    
+    await client.connect();
+
+    await client.db('admin').command({ ping: 1});
+    console.log(
+      "Pinged your deployment, You successfully connected to MongoDB!"
+    );
+  } catch(err) {
+    console.error(err)
+  }
+}
+
+let db = client.db("Frames")
+
+export default db;
