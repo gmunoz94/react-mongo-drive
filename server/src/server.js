@@ -10,15 +10,15 @@ const mocks = {
   }),
   Patient: () => ({
     id: () => "1",
-    firstName: () => "Evan",
-    lastName: () => "O'laughlin",
-    dateOfBirth: () => "11/06/1994",
+    firstName: () => "Thomas",
+    lastName: () => "Edison",
+    dateOfBirth: () => "1995-04-02",
     email: () => "evano@gmail.com",
     phoneNumber: () => "1111111111",
     streetAddress: () => "123 main st",
     city: () => "Austin",
     state: () => "TX",
-    zipCode: () => "78717",
+    zipCode: () => "78913",
     glOrders: () => {
       return {
         id: 1,
