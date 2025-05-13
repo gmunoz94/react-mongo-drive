@@ -57,5 +57,9 @@ const typeDefs = gql`
     user: [Users!]
     message: String!
   }
+
+  type Mutation {
+    addPatient(firstName: String!, lastName: String!, dateOfBirth: String!, phoneNumber: String!, streetAddress: String!, city: String!, state: String!, zipCode: String!): Patient
+  }
 `;
 export default typeDefs;
