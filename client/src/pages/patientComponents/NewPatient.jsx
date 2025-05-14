@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Form, Row, Col, Button, Card } from 'react-bootstrap';
+import axios from '../../utils/axios.config';
+import { useNavigate } from 'react-router-dom';
 
 const NewPatient = () => {
+
+  const navigate = useNavigate();
+
+  const [ patientInfo, setPatientInfo ] = useState({});
+
+
+  const handlePatientSubmit = async (event) => {
+    event.preventDefault();
+    
+		axios.post(`/api/patients`, {
+      firstName: patientInfo.firstName,
+      lastName: patientInfo.lastName,
+      dateOfBirth: patientInfo.dateOfBirth,
+      streetAddress: patientInfo.streetAddress,
+      city: patientInfo.city,
+      state: patientInfo.state,
+      zipCode: patientInfo.zipCode,
+      phoneNumber: patientInfo.phoneNumber
+    })
+			
+		.then((response) => {
+			console.log(response)
+      navigate(`/patients/${response.data._id}`)
+		})
+  }
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setPatientInfo({...patientInfo, [name]: value})
+    console.log(patientInfo)
+  }
+
   return (
     <>
       <Container fluid className='mt-3'>
@@ -10,37 +44,39 @@ const NewPatient = () => {
           <Card.Body>
             <Row className='justify-content-center' style={{ paddingTop: "35px"}}>
               <Col>
-                <Form>
+                <Form
+                  onSubmit={handlePatientSubmit}
+                >
                   <Row className='p-3'>
                     <Form.Group as={Col} controlId='formLastName'>
                       <Form.Label>Last Name</Form.Label>
-                      <Form.Control type='text' placeholder='Last Name' name='lastName' />
+                      <Form.Control type='text' placeholder='Last Name' name='lastName' onChange={handleInputChange} />
                     </Form.Group>
                     <Form.Group as={Col} controlId='formFirstName'>
                       <Form.Label>First Name</Form.Label>
-                      <Form.Control type='text' placeholder='First Name' name='firstName' />
+                      <Form.Control type='text' placeholder='First Name' name='firstName' onChange={handleInputChange}/>
                     </Form.Group>
                     <Form.Group as={Col} controlId='formDateOfBirth'>
                       <Form.Label>Date of Birth</Form.Label>
-                      <Form.Control type='date' name='dateOfBirth' />
+                      <Form.Control type='date' name='dateOfBirth' onChange={handleInputChange} />
                     </Form.Group>
                     <Form.Group as={Col} controlId='formPhoneNumber'>
                       <Form.Label>Phone Number</Form.Label>
-                      <Form.Control type='string' placeholder='Phone Number' name='phoneNumber' />
+                      <Form.Control type='string' placeholder='Phone Number' name='phoneNumber' onChange={handleInputChange} />
                     </Form.Group>
                   </Row>
                   <Row className='p-3'>
                     <Form.Group as={Col} controlId='formAddres' className='col-4'>
                       <Form.Label>Address</Form.Label>
-                      <Form.Control type='text' placeholder='Address' name='address'/>
+                      <Form.Control type='text' placeholder='Address' name='streetAddress' onChange={handleInputChange}/>
                     </Form.Group>
                     <Form.Group as={Col} controlId='formCity'>
                       <Form.Label>City</Form.Label>
-                      <Form.Control type='text' placeholder='City' name='city'/>
+                      <Form.Control type='text' placeholder='City' name='city' onChange={handleInputChange} />
                     </Form.Group>
                     <Form.Group as={Col} controlId='formState'>
                       <Form.Label>State</Form.Label>
-                      <Form.Select defaultValue='Select' name='State'>
+                      <Form.Select defaultValue='Select' name='state' onChange={handleInputChange} >
                         <option>Choose...</option>
                         <option value="Alabama">AL</option>
                         <option value="Alaska">AK</option>
@@ -96,7 +132,7 @@ const NewPatient = () => {
                     </Form.Group>
                     <Form.Group as={Col} controlId='formZipCode'>
                       <Form.Label>Zip Code</Form.Label>
-                      <Form.Control type='text' placeholder='Zip Code' name='zipCode'/>
+                      <Form.Control type='text' placeholder='Zip Code' name='zipCode' onChange={handleInputChange} />
                     </Form.Group>
                   </Row>
                   <Row className='p-3'>

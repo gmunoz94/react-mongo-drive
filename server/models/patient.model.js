@@ -12,7 +12,7 @@ const PatientSchema = new mongoose.Schema({
     required: [true, "Please enter Last Name"]
   },
   dateOfBirth: {
-    type: String,
+    type: Date,
     required: [true, "Please enter Date of Birth"]
   },
   email: {

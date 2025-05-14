@@ -2,7 +2,9 @@ import React from 'react'
 import { Card, Table, Container, Button } from 'react-bootstrap'
 
 
-function PtGlOrderTable({ptOrders, setNotesModalShow}) {
+function PtGlOrderTable({ptOrders, setNotesModalShow, patientInfo}) {
+  console.log(patientInfo.glOrders)
+
   const pendingGlOrders = ptOrders.pendingOrders.glasses
   const completeGlOrders = ptOrders.completeOrders.glasses
 

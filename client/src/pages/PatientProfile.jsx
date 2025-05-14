@@ -6,8 +6,37 @@ import PtClOrderTable from './profileComponents/PtClOrderTable';
 import { PtNewGlOrder } from './profileComponents/PtNewGlOrder';
 import PtNewClOrder from './profileComponents/PtNewClOrder';
 import NotesModal from './profileComponents/NotesModal';
+import { useParams } from 'react-router-dom';
+import axios from '../utils/axios.config';
+import moment from 'moment';
 
 const PatientProfile = () => {
+  const params = useParams();
+  const id = params.id
+  console.log(id)
+
+    // Need to get patien info from database
+  const [ patientInfo, setPatientInfo ] = useState({})
+  // const patientInfo = {
+  //   firstName: "Gerardo",
+  //   lastName: "Munoz",
+  //   dateOfBirth: "04/26/1994",
+  //   phoneNumber: "512-986-1629",
+  //   email: "gmunoz9619@gmail.com",
+  //   streetAddress: "10810 Gemsbuck Lodge",
+  //   city: "San Antonio",
+  //   state: "TX",
+  //   zipCode: "78245"
+  // }
+
+  useEffect(() => {
+    axios.get(`/api/patients/${id}`)
+    .then((response) => {
+      response.data.dateOfBirth = moment(response.data.dateOfBirth).add(1, 'days').format('L')
+      setPatientInfo(response.data)
+    })
+  }, [``])
+
   const [ notesModalShow, setNotesModalShow ] = useState({
     open: false,
   })
@@ -156,18 +185,6 @@ const PatientProfile = () => {
         "frame": "Sperry"
     }
 ]
-  // Need to get patien info from database
-  const patientInfo = {
-    firstName: "Gerardo",
-    lastName: "Munoz",
-    dateOfBirth: "04/26/1994",
-    phoneNumber: "512-986-1629",
-    email: "gmunoz9619@gmail.com",
-    streetAddress: "10810 Gemsbuck Lodge",
-    city: "San Antonio",
-    state: "TX",
-    zipCode: "78245"
-  }
 
   // Need to get order data from database (still deciding if we get it all in one request or two separate requests for (pending/complete) or (glasses/contacts))
   const ptOrders = {
@@ -292,10 +309,10 @@ const PatientProfile = () => {
                     <Container id='ptOrdersTab' style={{ paddingTop: "35px"}}>
                       <Row>
                         <Col>
-                          <PtGlOrderTable frames={frames} ptOrders={ptOrders} setNotesModalShow={setNotesModalShow} />
+                          <PtGlOrderTable frames={frames} ptOrders={ptOrders} patientInfo={patientInfo} setNotesModalShow={setNotesModalShow} />
                         </Col>
                         <Col>
-                          <PtClOrderTable ptOrders={ptOrders} setNotesModalShow={setNotesModalShow} />
+                          <PtClOrderTable ptOrders={ptOrders} patientInfo={patientInfo} setNotesModalShow={setNotesModalShow} />
                         </Col>
                       </Row>
                     </Container>

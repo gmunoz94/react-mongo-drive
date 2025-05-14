@@ -14,7 +14,7 @@ import AllGlOrders from './pages/AllGlOrders.jsx';
 import AllClOrders from './pages/AllClOrders.jsx';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000',
+  uri: 'http://localhost:5000',
   cache: InMemoryCache,
 })
 

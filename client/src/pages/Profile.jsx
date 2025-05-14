@@ -6,6 +6,8 @@ import HomeNavbar from './universalComponents/HomeNavbar';
 function Profile() {
   const params = useParams();
 
+  console.log(params)
+
   return (
     <div>
       <HomeNavbar />
